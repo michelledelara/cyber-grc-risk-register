@@ -1,0 +1,210 @@
+{
+  "project": "Cyber GRC Risk Register",
+  "analysis_type": "AI-ready rule-based GRC pre-classification",
+  "generated_at_utc": "2026-08-23T19:15:39.886182+00:00",
+  "source": "synthetic_security_findings",
+  "disclaimer": "Educational portfolio output. Automated classifications do not replace security, privacy, legal, compliance, or risk-management judgment.",
+  "summary": {
+    "total_findings": 6,
+    "priority_distribution": {
+      "P1 - Immediate": 1,
+      "P2 - High": 3,
+      "P3 - Medium": 2
+    },
+    "privacy_review_count": 6
+  },
+  "analysis": [
+    {
+      "finding_id": "FND-001",
+      "mapped_risk_id": "RISK-001",
+      "severity": "CRITICAL",
+      "automated_priority_score": 7,
+      "automated_priority": "P1 - Immediate",
+      "detected_grc_domains": [
+        "identity_access",
+        "data_privacy",
+        "logging_monitoring"
+      ],
+      "privacy_review_recommended": true,
+      "nist_csf_2_0": [
+        "PR.DS",
+        "PR.AA",
+        "DE.CM"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50",
+        "Art. 6 VII",
+        "Art. 6 VIII",
+        "Art. 6 X"
+      ],
+      "recommended_actions": [
+        "Enable S3 Block Public Access",
+        "Remove unnecessary public bucket policies and ACLs",
+        "Restrict access through IAM roles and least privilege",
+        "Classify the data and review encryption requirements",
+        "Enable monitoring for future exposure"
+      ],
+      "ai_review_prompt": "You are supporting a Cyber GRC analyst.\n\nAnalyze the synthetic security finding below using only the information supplied.\nDo not invent facts, legal conclusions, AWS configurations, or control evidence.\n\nFinding ID: FND-001\nTitle: Customer-data bucket allows public access\nSeverity: CRITICAL\nResource: AWS::S3::Bucket / novashop-customer-data\nBusiness context: The bucket stores customer information used by the e-commerce platform.\nCurrent NIST CSF 2.0 mapping: PR.DS, PR.AA, DE.CM\nCurrent LGPD references: Art. 46, Art. 50, Art. 6 VII, Art. 6 VIII, Art. 6 X\nAutomated domains: identity_access, data_privacy, logging_monitoring\nAutomated priority: P1 - Immediate\n\nTasks:\n1. Summarize the business risk in no more than 3 sentences.\n2. Review whether the current NIST CSF mapping is plausible based only on the supplied finding.\n3. Identify the proposed control objectives.\n4. List evidence that a human analyst should request to validate control implementation.\n5. Identify any assumptions or missing information.\n6. State explicitly whether privacy/legal review may be required.\n7. Do not state that the organization is compliant or non-compliant with LGPD.\n\nReturn a concise structured response.",
+      "human_validation_required": true,
+      "automation_note": "Priority and domain tags are rule-based pre-classification. They are decision-support outputs and require human validation."
+    },
+    {
+      "finding_id": "FND-002",
+      "mapped_risk_id": "RISK-002",
+      "severity": "HIGH",
+      "automated_priority_score": 5,
+      "automated_priority": "P2 - High",
+      "detected_grc_domains": [
+        "identity_access"
+      ],
+      "privacy_review_recommended": true,
+      "nist_csf_2_0": [
+        "PR.AA",
+        "GV.RR",
+        "ID.RA"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Review actual permissions required by the role",
+        "Remove unused or overly broad permissions",
+        "Apply least privilege",
+        "Use temporary credentials where appropriate",
+        "Establish periodic access reviews"
+      ],
+      "ai_review_prompt": "You are supporting a Cyber GRC analyst.\n\nAnalyze the synthetic security finding below using only the information supplied.\nDo not invent facts, legal conclusions, AWS configurations, or control evidence.\n\nFinding ID: FND-002\nTitle: IAM role contains excessive administrative permissions\nSeverity: HIGH\nResource: AWS::IAM::Role / novashop-operations-admin\nBusiness context: The role is used by personnel supporting daily e-commerce operations.\nCurrent NIST CSF 2.0 mapping: PR.AA, GV.RR, ID.RA\nCurrent LGPD references: Art. 46, Art. 50\nAutomated domains: identity_access\nAutomated priority: P2 - High\n\nTasks:\n1. Summarize the business risk in no more than 3 sentences.\n2. Review whether the current NIST CSF mapping is plausible based only on the supplied finding.\n3. Identify the proposed control objectives.\n4. List evidence that a human analyst should request to validate control implementation.\n5. Identify any assumptions or missing information.\n6. State explicitly whether privacy/legal review may be required.\n7. Do not state that the organization is compliant or non-compliant with LGPD.\n\nReturn a concise structured response.",
+      "human_validation_required": true,
+      "automation_note": "Priority and domain tags are rule-based pre-classification. They are decision-support outputs and require human validation."
+    },
+    {
+      "finding_id": "FND-003",
+      "mapped_risk_id": "RISK-003",
+      "severity": "CRITICAL",
+      "automated_priority_score": 6,
+      "automated_priority": "P2 - High",
+      "detected_grc_domains": [
+        "identity_access"
+      ],
+      "privacy_review_recommended": true,
+      "nist_csf_2_0": [
+        "PR.AA"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Enforce MFA for privileged access",
+        "Prefer federation and temporary credentials for human users",
+        "Review privileged identities",
+        "Monitor suspicious authentication events"
+      ],
+      "ai_review_prompt": "You are supporting a Cyber GRC analyst.\n\nAnalyze the synthetic security finding below using only the information supplied.\nDo not invent facts, legal conclusions, AWS configurations, or control evidence.\n\nFinding ID: FND-003\nTitle: MFA is not enabled for privileged human access\nSeverity: CRITICAL\nResource: AWS::IAM::User / privileged-user-01\nBusiness context: The identity can perform administrative actions in production resources.\nCurrent NIST CSF 2.0 mapping: PR.AA\nCurrent LGPD references: Art. 46, Art. 50\nAutomated domains: identity_access\nAutomated priority: P2 - High\n\nTasks:\n1. Summarize the business risk in no more than 3 sentences.\n2. Review whether the current NIST CSF mapping is plausible based only on the supplied finding.\n3. Identify the proposed control objectives.\n4. List evidence that a human analyst should request to validate control implementation.\n5. Identify any assumptions or missing information.\n6. State explicitly whether privacy/legal review may be required.\n7. Do not state that the organization is compliant or non-compliant with LGPD.\n\nReturn a concise structured response.",
+      "human_validation_required": true,
+      "automation_note": "Priority and domain tags are rule-based pre-classification. They are decision-support outputs and require human validation."
+    },
+    {
+      "finding_id": "FND-004",
+      "mapped_risk_id": "RISK-005",
+      "severity": "HIGH",
+      "automated_priority_score": 6,
+      "automated_priority": "P2 - High",
+      "detected_grc_domains": [
+        "identity_access",
+        "data_privacy",
+        "logging_monitoring"
+      ],
+      "privacy_review_recommended": true,
+      "nist_csf_2_0": [
+        "ID.AM",
+        "PR.DS",
+        "GV.RR"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50",
+        "Art. 6 III",
+        "Art. 6 VII",
+        "Art. 6 VIII",
+        "Art. 6 X"
+      ],
+      "recommended_actions": [
+        "Validate the data classification",
+        "Assign a data owner",
+        "Define retention requirements",
+        "Review access permissions",
+        "Confirm encryption and monitoring controls"
+      ],
+      "ai_review_prompt": "You are supporting a Cyber GRC analyst.\n\nAnalyze the synthetic security finding below using only the information supplied.\nDo not invent facts, legal conclusions, AWS configurations, or control evidence.\n\nFinding ID: FND-004\nTitle: Potential personal data detected without documented classification\nSeverity: HIGH\nResource: AWS::S3::Bucket / novashop-orders-archive\nBusiness context: The archive contains historical e-commerce order information.\nCurrent NIST CSF 2.0 mapping: ID.AM, PR.DS, GV.RR\nCurrent LGPD references: Art. 46, Art. 50, Art. 6 III, Art. 6 VII, Art. 6 VIII, Art. 6 X\nAutomated domains: identity_access, data_privacy, logging_monitoring\nAutomated priority: P2 - High\n\nTasks:\n1. Summarize the business risk in no more than 3 sentences.\n2. Review whether the current NIST CSF mapping is plausible based only on the supplied finding.\n3. Identify the proposed control objectives.\n4. List evidence that a human analyst should request to validate control implementation.\n5. Identify any assumptions or missing information.\n6. State explicitly whether privacy/legal review may be required.\n7. Do not state that the organization is compliant or non-compliant with LGPD.\n\nReturn a concise structured response.",
+      "human_validation_required": true,
+      "automation_note": "Priority and domain tags are rule-based pre-classification. They are decision-support outputs and require human validation."
+    },
+    {
+      "finding_id": "FND-005",
+      "mapped_risk_id": "RISK-004",
+      "severity": "HIGH",
+      "automated_priority_score": 4,
+      "automated_priority": "P3 - Medium",
+      "detected_grc_domains": [
+        "logging_monitoring",
+        "configuration",
+        "incident_response"
+      ],
+      "privacy_review_recommended": true,
+      "nist_csf_2_0": [
+        "DE.CM",
+        "DE.AE",
+        "RS.AN"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 48",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Review CloudTrail coverage across accounts and Regions",
+        "Centralize and protect audit logs",
+        "Define retention requirements",
+        "Integrate relevant events with monitoring and alerting",
+        "Test incident investigation procedures"
+      ],
+      "ai_review_prompt": "You are supporting a Cyber GRC analyst.\n\nAnalyze the synthetic security finding below using only the information supplied.\nDo not invent facts, legal conclusions, AWS configurations, or control evidence.\n\nFinding ID: FND-005\nTitle: Audit logging coverage is incomplete\nSeverity: HIGH\nResource: AWS::CloudTrail::Trail / novashop-production-trail\nBusiness context: Audit logs are required to investigate suspicious activity and support accountability.\nCurrent NIST CSF 2.0 mapping: DE.CM, DE.AE, RS.AN\nCurrent LGPD references: Art. 46, Art. 48, Art. 50\nAutomated domains: logging_monitoring, configuration, incident_response\nAutomated priority: P3 - Medium\n\nTasks:\n1. Summarize the business risk in no more than 3 sentences.\n2. Review whether the current NIST CSF mapping is plausible based only on the supplied finding.\n3. Identify the proposed control objectives.\n4. List evidence that a human analyst should request to validate control implementation.\n5. Identify any assumptions or missing information.\n6. State explicitly whether privacy/legal review may be required.\n7. Do not state that the organization is compliant or non-compliant with LGPD.\n\nReturn a concise structured response.",
+      "human_validation_required": true,
+      "automation_note": "Priority and domain tags are rule-based pre-classification. They are decision-support outputs and require human validation."
+    },
+    {
+      "finding_id": "FND-006",
+      "mapped_risk_id": "RISK-008",
+      "severity": "HIGH",
+      "automated_priority_score": 4,
+      "automated_priority": "P3 - Medium",
+      "detected_grc_domains": [
+        "logging_monitoring"
+      ],
+      "privacy_review_recommended": true,
+      "nist_csf_2_0": [
+        "ID.RA",
+        "DE.AE",
+        "GV.OV",
+        "ID.IM"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Define remediation SLAs based on severity",
+        "Assign accountable owners",
+        "Track findings through a workflow or ticketing process",
+        "Escalate overdue critical and high findings",
+        "Include remediation metrics in governance reporting"
+      ],
+      "ai_review_prompt": "You are supporting a Cyber GRC analyst.\n\nAnalyze the synthetic security finding below using only the information supplied.\nDo not invent facts, legal conclusions, AWS configurations, or control evidence.\n\nFinding ID: FND-006\nTitle: High-severity findings exceed remediation target\nSeverity: HIGH\nResource: SecurityFinding / security-hub-high-severity-backlog\nBusiness context: Management lacks consistent visibility into overdue cybersecurity remediation activities.\nCurrent NIST CSF 2.0 mapping: ID.RA, DE.AE, GV.OV, ID.IM\nCurrent LGPD references: Art. 46, Art. 50\nAutomated domains: logging_monitoring\nAutomated priority: P3 - Medium\n\nTasks:\n1. Summarize the business risk in no more than 3 sentences.\n2. Review whether the current NIST CSF mapping is plausible based only on the supplied finding.\n3. Identify the proposed control objectives.\n4. List evidence that a human analyst should request to validate control implementation.\n5. Identify any assumptions or missing information.\n6. State explicitly whether privacy/legal review may be required.\n7. Do not state that the organization is compliant or non-compliant with LGPD.\n\nReturn a concise structured response.",
+      "human_validation_required": true,
+      "automation_note": "Priority and domain tags are rule-based pre-classification. They are decision-support outputs and require human validation."
+    }
+  ]
+}
