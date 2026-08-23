@@ -1,6 +1,6 @@
 # 🛡️ Cyber GRC Risk Register
 
-> Practical Cyber GRC case study connecting AWS security findings, cybersecurity risks, controls, NIST CSF 2.0 and LGPD requirements.
+>  Practical Cyber GRC case study connecting AWS security findings, cybersecurity risks, controls, NIST CSF 2.0 and LGPD considerations.
 
 ---
 
@@ -148,6 +148,49 @@ Risk Score = Likelihood × Impact
 This simplified methodology was created for educational and portfolio purposes.
 
 ---
+## 📊 Risk Matrix
+
+The 10 cybersecurity risks were assessed using a 5×5 matrix based on Likelihood and Impact.
+
+### Inherent Risk
+
+The inherent risk represents the exposure before considering the effectiveness of the proposed treatment controls.
+
+![Inherent Risk Matrix](risk-matrix-inherent.png)
+
+The initial assessment identified:
+
+- 3 Critical risks
+- 7 High risks
+- 0 Moderate risks
+- 0 Low risks
+
+The Critical risks were associated with:
+
+- RISK-001 — Public exposure of customer data
+- RISK-003 — Missing MFA for privileged access
+- RISK-010 — Inadequate incident response capability
+
+---
+
+### Residual Risk
+
+Residual risk represents the estimated exposure after the proposed controls are implemented and assumed to operate effectively.
+
+![Residual Risk Matrix](risk-matrix-residual.png)
+
+After the proposed treatment:
+
+- 0 Critical risks
+- 0 High risks
+- 9 Moderate risks
+- 1 Low risk
+
+The reduction does not mean that risk has been eliminated.
+
+It demonstrates the expected effect of the proposed controls under the assumptions of this simulated assessment.
+
+> Residual risk should be reassessed using evidence of actual control implementation and effectiveness before a real risk-acceptance decision is made.
 
 ## 🔥 Initial Risk Scenarios
 
@@ -327,6 +370,13 @@ Detailed explanation of the risk assessment methodology.
 Mapping between security scenarios, NIST CSF 2.0, AWS controls and privacy considerations.
 
 ---
+### risk-matrix-inherent.png
+
+Visual representation of the 10 cybersecurity risks before the proposed treatment controls.
+
+### risk-matrix-residual.png
+
+Visual representation of the estimated residual risk after the proposed treatment controls are assumed to be effectively implemented.
 
 ## 🤖 Future AI Integration
 
@@ -352,18 +402,18 @@ AI would support the analysis while human review remains responsible for risk va
 
 ## 🚀 Project Roadmap
 
-* [ ] Build the initial Risk Register
-* [ ] Add 10 cybersecurity risks
-* [ ] Calculate inherent risk
-* [ ] Define risk treatment plans
-* [ ] Calculate residual risk
-* [ ] Map risks to NIST CSF 2.0
-* [ ] Map privacy-related risks to LGPD
-* [ ] Add AWS security controls
-* [ ] Create structured JSON findings
-* [ ] Add a risk matrix visualization
-* [ ] Create an executive risk summary
-* [ ] Explore AI-assisted GRC analysis
+- [x] Build the initial Risk Register
+- [x] Add 10 cybersecurity risks
+- [x] Calculate inherent risk
+- [x] Define risk treatment plans
+- [x] Calculate residual risk
+- [x] Map risks to NIST CSF 2.0
+- [x] Map privacy-related risks to LGPD
+- [x] Add AWS security controls
+- [x] Create structured JSON findings
+- [x] Add a risk matrix visualization
+- [ ] Create an executive risk summary
+- [ ] Explore AI-assisted GRC analysis
 
 ---
 
