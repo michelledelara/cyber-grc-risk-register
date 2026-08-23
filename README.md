@@ -156,7 +156,7 @@ The 10 cybersecurity risks were assessed using a 5×5 matrix based on Likelihood
 
 The inherent risk represents the exposure before considering the effectiveness of the proposed treatment controls.
 
-![Inherent Risk Matrix](risk-matrix-inherent.png)
+![Inherent Risk Matrix](docs/risk-matrix-inherent.png)
 
 The initial assessment identified:
 
@@ -177,7 +177,7 @@ The Critical risks were associated with:
 
 Residual risk represents the estimated exposure after the proposed controls are implemented and assumed to operate effectively.
 
-![Residual Risk Matrix](risk-matrix-residual.png)
+![Residual Risk Matrix](docs/risk-matrix-residual.png)
 
 After the proposed treatment:
 
@@ -424,7 +424,7 @@ HUMAN VALIDATION
 RISK DECISION
 ```
 
-AI would support the analysis while human review remains responsible for risk validation and decision-making.
+The automated preprocessing layer supports the analysis, while human review remains responsible for validating risk classification, framework mapping, control recommendations and final risk decisions.
 
 ---
 
