@@ -373,11 +373,11 @@ Mapping between security scenarios, NIST CSF 2.0, AWS controls and privacy consi
 
 Executive-level summary of the Cyber GRC assessment, highlighting the risk posture, Top 3 Critical risks, management priorities, proposed residual risk and recommended Cyber GRC indicators.
 
-### risk-matrix-inherent.png
+#### docs/risk-matrix-inherent.png
 
 Visual representation of the 10 cybersecurity risks before the proposed treatment controls.
 
-### risk-matrix-residual.png
+### docs/risk-matrix-residual.png
 
 Visual representation of the estimated residual risk after the proposed treatment controls are assumed to be effectively implemented.
 
