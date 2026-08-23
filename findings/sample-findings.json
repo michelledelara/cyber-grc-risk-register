@@ -1,0 +1,220 @@
+{
+  "project": "Cyber GRC Risk Register",
+  "scenario": "NovaShop Cloud",
+  "data_type": "synthetic_security_findings",
+  "disclaimer": "Synthetic educational dataset created for a Cyber GRC portfolio project. The schema is simplified and is not an export of any real AWS account or a reproduction of an official AWS service response format.",
+  "findings": [
+    {
+      "finding_id": "FND-001",
+      "source_service": "Amazon S3 / Security Hub",
+      "resource_type": "AWS::S3::Bucket",
+      "resource_id": "novashop-customer-data",
+      "title": "Customer-data bucket allows public access",
+      "severity": "CRITICAL",
+      "finding_type": "Public storage exposure",
+      "description": "A storage bucket containing customer information is configured in a way that permits public access.",
+      "evidence": [
+        "S3 Block Public Access is not fully enabled",
+        "Bucket policy permits access broader than the approved business requirement"
+      ],
+      "mapped_risk_id": "RISK-001",
+      "business_context": "The bucket stores customer information used by the e-commerce platform.",
+      "nist_csf_2_0": [
+        "PR.DS",
+        "PR.AA",
+        "DE.CM"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50",
+        "Art. 6 VII",
+        "Art. 6 VIII",
+        "Art. 6 X"
+      ],
+      "recommended_actions": [
+        "Enable S3 Block Public Access",
+        "Remove unnecessary public bucket policies and ACLs",
+        "Restrict access through IAM roles and least privilege",
+        "Classify the data and review encryption requirements",
+        "Enable monitoring for future exposure"
+      ],
+      "status": "OPEN",
+      "human_validation_required": true
+    },
+    {
+      "finding_id": "FND-002",
+      "source_service": "IAM Access Analyzer",
+      "resource_type": "AWS::IAM::Role",
+      "resource_id": "novashop-operations-admin",
+      "title": "IAM role contains excessive administrative permissions",
+      "severity": "HIGH",
+      "finding_type": "Excessive privilege",
+      "description": "An operations role has permissions broader than those required for its documented business function.",
+      "evidence": [
+        "Role contains broad permissions across multiple AWS services",
+        "No recent entitlement review is documented"
+      ],
+      "mapped_risk_id": "RISK-002",
+      "business_context": "The role is used by personnel supporting daily e-commerce operations.",
+      "nist_csf_2_0": [
+        "PR.AA",
+        "GV.RR",
+        "ID.RA"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Review actual permissions required by the role",
+        "Remove unused or overly broad permissions",
+        "Apply least privilege",
+        "Use temporary credentials where appropriate",
+        "Establish periodic access reviews"
+      ],
+      "status": "OPEN",
+      "human_validation_required": true
+    },
+    {
+      "finding_id": "FND-003",
+      "source_service": "AWS Config",
+      "resource_type": "AWS::IAM::User",
+      "resource_id": "privileged-user-01",
+      "title": "MFA is not enabled for privileged human access",
+      "severity": "CRITICAL",
+      "finding_type": "Authentication weakness",
+      "description": "A privileged human identity can access the AWS environment without multi-factor authentication.",
+      "evidence": [
+        "Privileged user has console access",
+        "No MFA device is associated with the identity"
+      ],
+      "mapped_risk_id": "RISK-003",
+      "business_context": "The identity can perform administrative actions in production resources.",
+      "nist_csf_2_0": [
+        "PR.AA"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Enforce MFA for privileged access",
+        "Prefer federation and temporary credentials for human users",
+        "Review privileged identities",
+        "Monitor suspicious authentication events"
+      ],
+      "status": "OPEN",
+      "human_validation_required": true
+    },
+    {
+      "finding_id": "FND-004",
+      "source_service": "Amazon Macie",
+      "resource_type": "AWS::S3::Bucket",
+      "resource_id": "novashop-orders-archive",
+      "title": "Potential personal data detected without documented classification",
+      "severity": "HIGH",
+      "finding_type": "Sensitive data governance gap",
+      "description": "Potential personal data was identified in a bucket that does not have a documented classification, owner, or retention rule.",
+      "evidence": [
+        "Potential personal identifiers detected",
+        "No classification tag is associated with the dataset",
+        "No documented data owner or retention schedule"
+      ],
+      "mapped_risk_id": "RISK-005",
+      "business_context": "The archive contains historical e-commerce order information.",
+      "nist_csf_2_0": [
+        "ID.AM",
+        "PR.DS",
+        "GV.RR"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50",
+        "Art. 6 III",
+        "Art. 6 VII",
+        "Art. 6 VIII",
+        "Art. 6 X"
+      ],
+      "recommended_actions": [
+        "Validate the data classification",
+        "Assign a data owner",
+        "Define retention requirements",
+        "Review access permissions",
+        "Confirm encryption and monitoring controls"
+      ],
+      "status": "OPEN",
+      "human_validation_required": true
+    },
+    {
+      "finding_id": "FND-005",
+      "source_service": "AWS Config / Security Hub",
+      "resource_type": "AWS::CloudTrail::Trail",
+      "resource_id": "novashop-production-trail",
+      "title": "Audit logging coverage is incomplete",
+      "severity": "HIGH",
+      "finding_type": "Logging and monitoring gap",
+      "description": "The current audit logging configuration does not provide the desired centralized coverage and monitoring for security investigations.",
+      "evidence": [
+        "Logging coverage is not aligned with the defined multi-account monitoring baseline",
+        "Centralized alerting for relevant events is not documented"
+      ],
+      "mapped_risk_id": "RISK-004",
+      "business_context": "Audit logs are required to investigate suspicious activity and support accountability.",
+      "nist_csf_2_0": [
+        "DE.CM",
+        "DE.AE",
+        "RS.AN"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 48",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Review CloudTrail coverage across accounts and Regions",
+        "Centralize and protect audit logs",
+        "Define retention requirements",
+        "Integrate relevant events with monitoring and alerting",
+        "Test incident investigation procedures"
+      ],
+      "status": "OPEN",
+      "human_validation_required": true
+    },
+    {
+      "finding_id": "FND-006",
+      "source_service": "AWS Security Hub",
+      "resource_type": "SecurityFinding",
+      "resource_id": "security-hub-high-severity-backlog",
+      "title": "High-severity findings exceed remediation target",
+      "severity": "HIGH",
+      "finding_type": "Security governance and remediation gap",
+      "description": "Multiple high-severity security findings remain open without documented ownership or remediation deadlines.",
+      "evidence": [
+        "High-severity findings remain unresolved",
+        "Finding owners are not consistently assigned",
+        "No formal remediation SLA is recorded"
+      ],
+      "mapped_risk_id": "RISK-008",
+      "business_context": "Management lacks consistent visibility into overdue cybersecurity remediation activities.",
+      "nist_csf_2_0": [
+        "ID.RA",
+        "DE.AE",
+        "GV.OV",
+        "ID.IM"
+      ],
+      "lgpd_reference": [
+        "Art. 46",
+        "Art. 50"
+      ],
+      "recommended_actions": [
+        "Define remediation SLAs based on severity",
+        "Assign accountable owners",
+        "Track findings through a workflow or ticketing process",
+        "Escalate overdue critical and high findings",
+        "Include remediation metrics in governance reporting"
+      ],
+      "status": "OPEN",
+      "human_validation_required": true
+    }
+  ]
+}
