@@ -412,7 +412,7 @@ AI would support the analysis while human review remains responsible for risk va
 - [x] Add AWS security controls
 - [x] Create structured JSON findings
 - [x] Add a risk matrix visualization
-- [ ] Create an executive risk summary
+- [x] Create an executive risk summary
 - [ ] Explore AI-assisted GRC analysis
 
 ---
